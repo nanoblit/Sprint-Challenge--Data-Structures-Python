@@ -15,7 +15,7 @@ names_2_bst = BinarySearchTree()
 
 for name in names_2:
     names_2_bst.insert(name)
-
+# the original runtime was O(n^2)
 duplicates = []
 for name in names_1:
     if names_2_bst.contains(name):

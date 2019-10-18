@@ -42,6 +42,26 @@ class LinkedList:
     # if we've gotten here, then the target node isn't in our list
     return False
 
-  def reverse_list(self):
-    # TO BE COMPLETED
-    pass
+  def reverse_list(self, node=None):
+    # if no node
+    if not node:
+      # if head is None
+      if not self.head:
+        # return
+        return
+      # set head as node
+      node = self.head
+    # get next node
+    next_node = node.get_next()
+    # if no more nodes:
+    if not next_node:
+      # set the node as the new head
+      self.head = node
+      # return
+      return
+    # call reverse_list recursively with that node
+    self.reverse_list(next_node)
+    # set the next node as a child of the current node
+    next_node.set_next(node)
+    # return
+    return
